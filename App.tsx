@@ -1,20 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+// Estilo e Temas
+import { ThemeProvider } from 'styled-components/native';
+import UserBottomSeetContextProvider from './src/context/UserBottomSeetContext';
+import UserContextProvider from './src/context/UserContext';
+import Routes from './src/Routes';
+import light from './src/styles/themes/light';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <UserContextProvider>
+      <UserBottomSeetContextProvider>
+        <ThemeProvider theme={light}>
+          <StatusBar
+            //barStyle='light-content'
+            backgroundColor="transparent"
+            translucent
+          />
+
+          <Routes /> 
+        </ThemeProvider>
+      </UserBottomSeetContextProvider>
+    </UserContextProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
