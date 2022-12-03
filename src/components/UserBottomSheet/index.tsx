@@ -1,33 +1,28 @@
 import { useContext, useState } from "react";
-import { Text, View, TextInput, TouchableOpacity} from "react-native";
+import { Text} from "react-native";
 //import { TextInput } from "react-native-gesture-handler";
 import { UserBottomSeetContext } from "../../context/UserBottomSeetContext";
 import { UserContext } from "../../context/UserContext";
+import { gitHubApi } from "../../services/gitHubApi";
 import { Container, LabelInput, ButtonContainer, ButtonSave, ButtonCancel, TextButtonCancel,TextButtonSave, InputContainer, UserInput } from "./styles";
 
 
 
 export default function UserBottomSheetContents(){
-  const [userName, setUserName] = useState('');
+  const [userNameInput, setUserNameInput] = useState('');
   const {CloseButtonSheet} = useContext(UserBottomSeetContext)
-  const {setUsername} = useContext(UserContext)
+  const {username,setUsername} = useContext(UserContext)
 
   function handleCloseButtonSheet(){
     CloseButtonSheet()
   }
 
-  function updateUsername(){
-    fetch(`https://api.github.com/users/${userName}`)
-    .then(response => {
-      if (response.status === 404){
-        alert("Não foi possível encontrar esse usuátio")
-        return;
-      }
-
-      setUsername(userName)
-      handleCloseButtonSheet()
-
-    })
+  async function updateUsername(){
+    const response = await gitHubApi.get(`/users/vinizap4`)
+    alert(response.status)
+    setUsername(userNameInput)      
+    handleCloseButtonSheet()
+    //alert("updated" + response.data.login)
 
   }
 
@@ -38,8 +33,8 @@ export default function UserBottomSheetContents(){
       <InputContainer>
         <LabelInput> Nome do usuário</LabelInput>
         <UserInput
-          value={userName}
-          onChangeText={(userName) => setUserName(userName)}
+          value={userNameInput}
+          onChangeText={(userName) => setUserNameInput(userName)}
           placeholder={'UserName'}
           autoCapitalize='none'
         />

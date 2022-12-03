@@ -8,9 +8,7 @@ export default function  Favorite(){
 
   return(
     <SafeAreaView>
-   
-        <Text>Favorite</Text>
-  
-      </SafeAreaView>
+      <Text>Favorite</Text>
+    </SafeAreaView>
   )
 }
