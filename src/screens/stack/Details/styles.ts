@@ -13,14 +13,14 @@ export const RepoInfo = styled.View`
 `
 
 export const Title = styled.Text`
-  font-family: ${FONT.FONT_FAMILY.BOLD};
+  font-family: ${FONT.FONT_FAMILY.INTER_BOLD};
   color: ${({theme}) => theme.COLOR.TEXT};
   font-size: ${FONT.FONT_SIZE.LG};
   margin: 16px;
 `
 
 export const Description = styled.Text`
-  font-family: ${FONT.FONT_FAMILY.REGULAR};
+  font-family: ${FONT.FONT_FAMILY.INTER_REGULAR};
   color: ${({theme}) => theme.COLOR.LIGHT_TEXT};
   font-size: ${FONT.FONT_SIZE.MD};
   margin: 0px 16px;
@@ -44,7 +44,7 @@ export const RedCircle = styled.View`
 
 export const LanguageText = styled.Text`
   margin-left: 6px;
-  font-family: ${FONT.FONT_FAMILY.REGULAR};
+  font-family: ${FONT.FONT_FAMILY.INTER_REGULAR};
   color: ${({theme}) => theme.COLOR.LIGHT_TEXT};
   font-size: ${FONT.FONT_SIZE.SM};
   margin-left: 6px;
@@ -66,6 +66,7 @@ export const OpenRepoButton = styled.TouchableOpacity`
 
 export const OpenRepoText = styled.Text`
   color: ${({theme}) => theme.COLOR.SECUNDARY};
+  font-family: ${FONT.FONT_FAMILY.ROBOTO_Medium};
   margin: 8px;
 `
 
@@ -86,5 +87,6 @@ export const FavoriteButton = styled.TouchableOpacity<propsFavoriteButton>`
 
 export const FavoriteText = styled.Text`
   color: ${({theme}) => theme.COLOR.TEXT};
+  font-family: ${FONT.FONT_FAMILY.ROBOTO_Medium};
   margin: 8px;
 `

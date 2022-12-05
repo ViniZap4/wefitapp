@@ -1,8 +1,6 @@
 import { createContext, ReactNode, useRef} from "react";
 import { Modalize } from "react-native-modalize";
-import { SafeAreaView } from "react-native-safe-area-context";
 import UserBottomSheetContents from "../components/UserBottomSheet";
-
 
 
 // tipo do context

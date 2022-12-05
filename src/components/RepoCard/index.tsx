@@ -6,10 +6,9 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { Line } from "../Line";
 import { useTheme } from 'styled-components';
-import { useFocusEffect, useLinkProps, useNavigation, useNavigationState } from "@react-navigation/native";
+import { useFocusEffect, useNavigation, useNavigationState } from "@react-navigation/native";
 import { addRepositoryStorage, checkRepositoryStorage } from "../../utils/favoritesStorage";
 import { useCallback, useState } from "react";
-import { useAsyncStorage } from "@react-native-async-storage/async-storage";
 
 
 interface Props {
@@ -19,13 +18,13 @@ interface Props {
 export function RepoCard({data}: Props){
   const [favorited, setFavorited] = useState(true)
   const screenName = useNavigationState((state) => state.routes[state.index].name)
-
   const navigation = useNavigation()
+
 
   const theme = useTheme();
 
-  function setFavorite(){
-    addRepositoryStorage(data)
+  async function setFavorite(){
+    await addRepositoryStorage(data)
     checkRepository();
   } 
 
@@ -35,7 +34,7 @@ export function RepoCard({data}: Props){
     navigation.navigate("Details", data);
   } 
 
-   async function checkRepository() {
+  async function checkRepository() {
     const check = await checkRepositoryStorage(data.node_id)
     setFavorited(check)
   }
@@ -63,7 +62,7 @@ export function RepoCard({data}: Props){
       <Line />
 
       <View>
-        <Description>
+        <Description numberOfLines={2}>
           {!data.description? "Não há descrição." : data.description} 
         </Description>
       </View>

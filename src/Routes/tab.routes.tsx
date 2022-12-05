@@ -12,6 +12,7 @@ import ButtomConfig from '../components/ButtomConfig';
 //screens
 import Home from "../screens/tabs/Home/index";
 import Favorite from '../screens/tabs/Favorites';
+import { FONT } from '../styles/components/Font';
 
 
 export function TabRoutes(){
@@ -20,6 +21,9 @@ export function TabRoutes(){
         screenOptions={{
           headerTitleAlign: 'left',
           headerTitle: "Wefit",
+          tabBarLabelStyle:{
+            fontFamily: FONT.FONT_FAMILY.ROBOTO_Medium
+          },
           headerRight: (props) => (
             <ButtomConfig />
           )

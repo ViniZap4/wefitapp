@@ -1,7 +1,9 @@
 export const FONT = {
   FONT_FAMILY: {
-    REGULAR: 'Inter_400Regular',
-    BOLD: 'Inter_700Bold',
+    INTER_REGULAR: "Inter_400Regular",
+    INTER_BOLD: "Inter_700Bold",
+    ROBOTO_Medium : "Roboto_500Medium",
+    ROBOTO_Regular: "Roboto_400Regular"
   },
 
   FONT_SIZE: {

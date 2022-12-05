@@ -5,7 +5,7 @@ import { UserBottomSeetContext } from "../../context/UserBottomSeetContext";
 import { UserContext } from "../../context/UserContext";
 import { gitHubApi } from "../../services/gitHubApi";
 import { Container, LabelInput, ButtonContainer, ButtonSave, ButtonCancel, TextButtonCancel,TextButtonSave, InputContainer, UserInput } from "./styles";
-import Toast from 'react-native-toast-message';
+//import Toast from 'react-native-toast-message';
 
 
 
@@ -19,14 +19,17 @@ export default function UserBottomSheetContents(){
   }
 
   async function updateUsername(){
-    const response = await gitHubApi.get(`/users/vinizap4`)
-    setUsername(userNameInput)      
-    handleCloseButtonSheet()
-    Toast.show({
-      type: "success",
-      text1: `Selecionando o usuário ${userNameInput} com sucesso!`
+    await gitHubApi.get(`/users/${userNameInput}`)
+    .then(response => {
+      setUsername(userNameInput)
+      handleCloseButtonSheet()
+      alert(`Selecionando o usuário ${response.data.login} com sucesso! `)
+    }).catch(error => {
+      alert("não foi possível atualizar")
+
     })
-  }
+  
+ }
 
   return(
     <Container>
@@ -35,8 +38,8 @@ export default function UserBottomSheetContents(){
       <InputContainer>
         <LabelInput> Nome do usuário</LabelInput>
         <UserInput
-          value={userNameInput}
-          onChangeText={(userName) => setUserNameInput(userName)}
+          value={userNameInput.replace(/\s/g, '')}
+          onChangeText={(userName) => setUserNameInput(userName.replace(/\s/g, ''))}
           placeholder={'UserName'}
           autoCapitalize='none'
         />

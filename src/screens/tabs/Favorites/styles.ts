@@ -4,5 +4,7 @@ export const Container = styled.SafeAreaView`
   flex: 1;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
+
 `
 

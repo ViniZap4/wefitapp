@@ -8,9 +8,10 @@ import { Entypo } from '@expo/vector-icons';
 
 
 import { useCallback, useState } from "react";
-import { checkRepositoryStorage } from "../../../utils/favoritesStorage";
+import { addRepositoryStorage, checkRepositoryStorage, removeRepositoryStorage } from "../../../utils/favoritesStorage";
 import { useTheme } from "styled-components";
 import { Linking } from "react-native";
+import { useEffect } from "react";
 
 export default function Details(){
   const theme = useTheme();
@@ -25,7 +26,6 @@ export default function Details(){
     setFavorited(check)
   }
 
-
   useFocusEffect(useCallback(() => {
     checkRepository();
   }, []));
@@ -34,15 +34,25 @@ export default function Details(){
     Linking.openURL(Repository.html_url.toString())
   }
 
+  async function hundleFavorite(){
+    if(favorited){
+      await removeRepositoryStorage(Repository.node_id)
+    }else{
+      await addRepositoryStorage(Repository)
+    }
+
+    checkRepository()
+  }
+
   return(
     <Container>
       <RepoInfo>
         <Title>
-          {Repository.full_name}
+          {Repository.full_name} 
         </Title>
         <Description>
           {!Repository.description? "Não há descrição." : Repository.description} 
-          
+           
         </Description>
         
         <LanguageContainer>
@@ -59,7 +69,7 @@ export default function Details(){
           <Feather name="link-2" size={24} color={theme.COLOR.SECUNDARY} />
         </OpenRepoButton>
 
-        <FavoriteButton favorited={favorited}>
+        <FavoriteButton onPress={hundleFavorite} favorited={favorited}>
           <FavoriteText> {favorited? "Desfavoritar" : "Favoritar"} </FavoriteText>
           <Entypo name={favorited?"star-outlined":"star" } size={24} color="black" />
         </FavoriteButton>

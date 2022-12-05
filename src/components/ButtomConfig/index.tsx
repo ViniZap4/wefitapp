@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { TouchableOpacity } from "react-native";
 import { Ionicons } from '@expo/vector-icons'; 
 
 
 //contex
 import { UserBottomSeetContext } from "../../context/UserBottomSeetContext";
+import { ButtonSetting } from "./styles";
 
 export default function ButtomConfig(){
   const {OpenButtonSheet} = useContext(UserBottomSeetContext)
@@ -14,8 +14,8 @@ export default function ButtomConfig(){
   }
 
   return(
-    <TouchableOpacity onPress={OpenUserBottomSheet}>
-      <Ionicons name="settings-sharp" size={30} color="black" />
-    </TouchableOpacity>
+    <ButtonSetting onPress={OpenUserBottomSheet}>
+      <Ionicons name="settings-sharp" size={27} color="black" />
+    </ButtonSetting>
   )
 }

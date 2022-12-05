@@ -1,4 +1,3 @@
-import Toast from 'react-native-toast-message';
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import { Repository } from '../../../@types/repository';
 
@@ -20,17 +19,8 @@ export async function addRepositoryStorage(newData: Repository){
 
     await setItem(JSON.stringify(data));
     
-    Toast.show({
-      type: "success",
-      text1: "adicionado ao favoritos com sucesso!"
-    })
-
   } catch (error) {
-
-    Toast.show({
-      type: "error",
-      text1: "Não foi possível adicionar aos favoritos."
-    })
+      alert("Não foi possível adicionar aos favoritos.")
   }
 }
 

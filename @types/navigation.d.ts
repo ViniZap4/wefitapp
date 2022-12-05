@@ -1,11 +1,10 @@
 import { Repository } from "./repository";
-
 export declare global {
-  namespace ReactNavigation{
-    interface RootParamsList{
+  namespace ReactNavigation {
+    interface RootParamList {
       Details: Repository;
-      Repository: indefined;
-      Favorites: indefined;
+      Repository: undefined;
+      Favorites: undefined;
     }
   }
 }

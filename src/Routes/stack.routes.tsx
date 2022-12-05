@@ -9,6 +9,9 @@ const { Navigator, Screen} = createNativeStackNavigator()
 import Details from "../screens/stack/Details";
 import { TabRoutes } from "./tab.routes";
 
+import { Platform  } from 'react-native';
+import { FONT } from "../styles/components/Font";
+
 export function StackRoutes(){
   const {UserBottomSheet} = useContext(UserBottomSeetContext)
 
@@ -16,10 +19,15 @@ export function StackRoutes(){
     <Navigator
       screenOptions={{
         headerTintColor:"white",
-        headerTitleAlign: "left",
+        headerTitleAlign: 'left',
+        headerBackTitle: "Detalhes",
+        headerTitleStyle:{
+          fontFamily: FONT.FONT_FAMILY.ROBOTO_Medium
+        },
         headerStyle:{
           backgroundColor: "black",
-        }
+        },
+      
       }}>
 
         <Screen 
@@ -33,7 +41,7 @@ export function StackRoutes(){
         <Screen
           name="Details"
           options={{
-            title: "Detalhes"            
+            title: (Platform.OS === 'android')? "Detalhes": ""            
           }}
           component={Details}
         />

@@ -17,7 +17,7 @@ export const Header = styled.View`
 
 export const Title = styled.Text`
   font-size: ${FONT.FONT_SIZE.SM};
-  font-family: ${FONT.FONT_FAMILY.BOLD};
+  font-family: ${FONT.FONT_FAMILY.INTER_BOLD};
 `
 
 export const Icon = styled.Image`
@@ -28,7 +28,7 @@ export const Icon = styled.Image`
 
 export const Description = styled.Text`
   color: ${({theme}) => theme.COLOR.LIGHT_TEXT};
-  font-family: ${FONT.FONT_FAMILY.REGULAR};
+  font-family: ${FONT.FONT_FAMILY.INTER_REGULAR};
   font-size: ${FONT.FONT_SIZE.SM};
 
 
@@ -63,7 +63,7 @@ export const StarCount = styled.View`
 `
 export const StarCountText = styled.Text`
   margin-left: 6px;
-  font-family: ${FONT.FONT_FAMILY.REGULAR};
+  font-family: ${FONT.FONT_FAMILY.INTER_REGULAR};
   color: ${({theme}) => theme.COLOR.TEXT};
   font-size: ${FONT.FONT_SIZE.SM};
 `
@@ -81,7 +81,7 @@ export const RedCircle = styled.View`
 
 export const LanguageText = styled.Text`
   margin-left: 6px;
-  font-family: ${FONT.FONT_FAMILY.REGULAR};
+  font-family: ${FONT.FONT_FAMILY.INTER_REGULAR};
   color: ${({theme}) => theme.COLOR.TEXT};
   font-size: ${FONT.FONT_SIZE.SM};
 `
