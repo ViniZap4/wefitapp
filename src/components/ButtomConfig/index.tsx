@@ -15,7 +15,7 @@ export default function ButtomConfig(){
 
   return(
     <TouchableOpacity onPress={OpenUserBottomSheet}>
-      <Ionicons name="settings-sharp" size={48} color="black" />
+      <Ionicons name="settings-sharp" size={30} color="black" />
     </TouchableOpacity>
   )
 }

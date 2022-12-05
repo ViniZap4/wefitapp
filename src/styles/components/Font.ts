@@ -5,6 +5,8 @@ export const FONT = {
   },
 
   FONT_SIZE: {
-    MD: "12px",
+    SM: "12px",
+    MD: "16px",
+    LG: "20px"
   }
 };

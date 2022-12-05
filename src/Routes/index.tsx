@@ -1,14 +1,14 @@
 import {NavigationContainer} from "@react-navigation/native"
+import { useContext } from "react"
+import { UserBottomSeetContext } from "../context/UserBottomSeetContext"
 
-import {TabRoutes} from "./tab.routes"
-//import {StackRoutes} from "./stack.routes"
+import {StackRoutes} from "./stack.routes"
 
 export default function Routes(){
 
-  return(
+  return(<>
     <NavigationContainer>
-     <TabRoutes />
-     
+     <StackRoutes />
     </NavigationContainer>
-  )
+  </>)
 }

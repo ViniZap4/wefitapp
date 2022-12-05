@@ -1,30 +1,34 @@
+import { useAsyncStorage } from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { Repository } from "../../../../@types/repository";
 import { RepoCard } from "../../../components/RepoCard";
 import { UserContext } from "../../../context/UserContext";
-import { gitHubApi } from "../../../services/gitHubApi";
 
 
-
-export function HomeContents(){
+export function FavoritesContents(){
   const {username} = useContext(UserContext)
   const [repositorys, setRepositorys] = useState<Repository[]>([])
+  const { getItem, setItem } = useAsyncStorage("@wefitapp:repositorys");
 
-  async function getRepositorys(){
-    const response = await gitHubApi.get(`/users/${username}/repos`)
-    setRepositorys(response.data)
+
+  async function getRepositorys() {
+    const response = await getItem();
+    const data = response ? JSON.parse(response) : [];
+    setRepositorys(data);
   }
-  
+
   useFocusEffect(useCallback(() => {
     getRepositorys();
   }, [username]));
+  
+
 
   if(repositorys.length <= 0 || !repositorys || repositorys === undefined){
     return(
       <Text>
-        Esse Usuário ainda não tem repositórios
+        Não há Repositório favoridados
       </Text>
     )
   }

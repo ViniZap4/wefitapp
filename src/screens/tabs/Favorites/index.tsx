@@ -1,14 +1,10 @@
-import { Text } from "react-native";
-import {SafeAreaView} from "react-native-safe-area-context"
-
+import { FavoritesContents } from "./FavoritesContents";
+import { Container } from "./styles";
 
 export default function  Favorite(){
-
-
-
   return(
-    <SafeAreaView>
-      <Text>Favorite</Text>
-    </SafeAreaView>
+    <Container>
+      <FavoritesContents />
+    </Container>
   )
 }

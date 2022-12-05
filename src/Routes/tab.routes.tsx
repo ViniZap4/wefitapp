@@ -7,7 +7,7 @@ const { Navigator, Screen} = createBottomTabNavigator()
 import {AntDesign} from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
-import ButtomConfig from '../components/config/ButtomConfig';
+import ButtomConfig from '../components/ButtomConfig';
 
 //screens
 import Home from "../screens/tabs/Home/index";

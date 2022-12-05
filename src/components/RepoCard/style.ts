@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { FONT } from "../../styles/components/Font";
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
   margin: 16px 16px;
   gap: 16px;
   padding: 12px 16px;
@@ -16,7 +16,7 @@ export const Header = styled.View`
 `
 
 export const Title = styled.Text`
-  font-size: ${FONT.FONT_SIZE.MD};
+  font-size: ${FONT.FONT_SIZE.SM};
   font-family: ${FONT.FONT_FAMILY.BOLD};
 `
 
@@ -29,6 +29,8 @@ export const Icon = styled.Image`
 export const Description = styled.Text`
   color: ${({theme}) => theme.COLOR.LIGHT_TEXT};
   font-family: ${FONT.FONT_FAMILY.REGULAR};
+  font-size: ${FONT.FONT_SIZE.SM};
+
 
 `
 
@@ -51,6 +53,8 @@ export const FavoriteButton = styled.TouchableOpacity`
 export const FavoriteButtonText = styled.Text`
   margin-left: 9px;
   color: ${({theme}) => theme.COLOR.PRIMARY};
+  font-size: ${FONT.FONT_SIZE.SM};
+
 `
 
 export const StarCount = styled.View`
@@ -61,6 +65,7 @@ export const StarCountText = styled.Text`
   margin-left: 6px;
   font-family: ${FONT.FONT_FAMILY.REGULAR};
   color: ${({theme}) => theme.COLOR.TEXT};
+  font-size: ${FONT.FONT_SIZE.SM};
 `
 
 export const LanguageContainer = styled.View`
@@ -78,4 +83,5 @@ export const LanguageText = styled.Text`
   margin-left: 6px;
   font-family: ${FONT.FONT_FAMILY.REGULAR};
   color: ${({theme}) => theme.COLOR.TEXT};
+  font-size: ${FONT.FONT_SIZE.SM};
 `
